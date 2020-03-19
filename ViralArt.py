@@ -1,13 +1,10 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[21]:
-
 
 from Bio import SeqIO
 import numpy as np
 from PIL import Image
 import math
+
+filename = 'sequence.fasta'
 records = []
 colors = {'A' : [41, 41, 106],
           'G' : [171, 85, 161],
@@ -18,7 +15,7 @@ colors = {'A' : [41, 41, 106],
 }   # a nice blue color scheme
 
 
-for record in SeqIO.parse("sequence.fasta", "fasta"):
+for record in SeqIO.parse(file_name, "fasta"):
     records.append(record) # get records from fasta file
 if records:
     sequence = records[0].seq
@@ -31,14 +28,6 @@ if records:
     image = Image.fromarray(data)   #create the image
     image.show()
 
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 
