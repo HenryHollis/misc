@@ -18,13 +18,20 @@
     <input type = "text"/> Second message<br>
 </form>
 
-<button onclick="main()">Generate</button>
+<button id="start_button" >Generate</button>
+ 
 
 <canvas id="myCanvas" width="600" height="600"></canvas>
 
 
 
 <script>
+$("#start_button").click( function(){
+
+         main();
+            
+
+  }); 
 
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
@@ -43,7 +50,7 @@ function main() {
     text += x.elements[i].value + " ";
   }
   var bv1 = text2Binary(text.split(" ")[0]).split(" ").join("");
-  var bv2  =text2Binary(text.split(" ")[0]).split(" ").join("");
+  var bv2  =text2Binary(text.split(" ")[1]).split(" ").join("");
   draw_pattern(bv1, bv2);
 }
 
@@ -56,7 +63,7 @@ function draw_pattern(bv1, bv2) {
         for(var j=0;j<canvas.width;j+=p ){  //j is the x level
             let xoffset = 0;
             let yoffset = 0;
-            if(bv1[(i)/q ] == '1'){
+            if(bv1[i/q ] == '1'){
                 xoffset = 20;
             }
              if(bv2[i/q ] == '1'){
