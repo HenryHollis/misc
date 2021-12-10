@@ -56,32 +56,37 @@ function main() {
 
 function draw_pattern(bv1, bv2) {
      ctx.clearRect(0, 0, canvas.width, canvas.height);
-     var p = 40
-     var q = 20
+     var p = 10
+     var q = 5
+     
     for(var i=0;i<canvas.height;i+=q ){      // i is the y level
-
+      
         for(var j=0;j<canvas.width;j+=p ){  //j is the x level
             let xoffset = 0;
             let yoffset = 0;
             if(bv1[i/q ] == '1'){
-                xoffset = 20;
+                xoffset = 5;
             }
              if(bv2[i/q ] == '1'){
-                yoffset = 20;
+                yoffset = 5;
             }
+            var vcolor = 'black';
+            var hcolor = 'black';
+            //vcolor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+            //hcolor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
            
-                ctx.strokeStyle = 'black';
-                ctx.lineWidth = 5;
+                ctx.strokeStyle = vcolor; //'black'
+                ctx.lineWidth = 2;
                 ctx.beginPath();
                 ctx.moveTo(j+xoffset, i);
-                ctx.lineTo(j+20+xoffset, i);
+                ctx.lineTo(j+5+xoffset, i);
                 ctx.stroke();
                   
-                ctx.strokeStyle = 'black';
-                ctx.lineWidth = 5;
+                ctx.strokeStyle = hcolor;
+                ctx.lineWidth = 2;
                 ctx.beginPath();
                 ctx.moveTo(i, j+yoffset);
-                ctx.lineTo(i, j+20+yoffset);
+                ctx.lineTo(i, j+5+yoffset);
                 ctx.stroke();
    
      }
